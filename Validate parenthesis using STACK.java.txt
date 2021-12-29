@@ -1,0 +1,47 @@
+import java.util.*;
+
+public class Main
+{
+	
+public static void main(String[] args) {
+
+	Map<Character,Character> map=new HashMap<>();
+
+	map.put('{','}');
+
+	map.put('(',')');
+
+	map.put('[',']');
+
+	String expression="{}";
+
+	if(expression.length()%2!=0){
+
+	    System.out.println("No");
+	}
+
+	else{
+
+	Stack<Character>stack=new Stack<>();
+
+	for(char c:expression.toCharArray()){
+
+	    if(map.containsKey(c)){
+
+	    stack.push(c);
+	    }
+	else if(stack.isEmpty()||map.get(stack.pop())==c){
+
+	    break;
+	}
+	}
+	
+	if(stack.isEmpty())
+	    System.out.println("Yes");
+
+	else
+	    
+	System.out.println("No");
+}
+}
+}
